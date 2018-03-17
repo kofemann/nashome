@@ -3,7 +3,8 @@ FROM fedora:branched
 
 MAINTAINER dCache "Tiramisu Mokka <kofemann@gmail.com>"
 
-RUN yum install -y samba
+RUN dnf install --refresh -y samba
+RUN dnf clean all
 
 COPY smb.conf /etc/samba/smb.conf
 
