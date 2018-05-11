@@ -1,5 +1,5 @@
 # Based on Fedora 28
-FROM fedora:branched
+FROM fedora:latest
 
 MAINTAINER dCache "Tiramisu Mokka <kofemann@gmail.com>"
 
