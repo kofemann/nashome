@@ -1,14 +1,13 @@
-# Based on Fedora 28
-FROM fedora:latest
+# Based on Alpine
+FROM alpine:3.8
 
 MAINTAINER dCache "Tiramisu Mokka <kofemann@gmail.com>"
 
-RUN dnf install --refresh -y samba
-RUN dnf clean all
+RUN apk --update add samba
 
 COPY smb.conf /etc/samba/smb.conf
 
-RUN useradd -U -c "Samba User" samba
+RUN addgroup samba && adduser -S -G samba samba
 RUN echo -e "letme1n\nletme1n" | smbpasswd -s -a samba
 
 RUN mkdir /data
